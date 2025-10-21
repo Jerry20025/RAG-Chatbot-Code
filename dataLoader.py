@@ -8,7 +8,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 textSplitter=RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 logging = get_logger(__name__)
 
-crawl=Firecrawl(api_key="fc-2b841a657e054ce3a321c019e4692013")
+crawl=Firecrawl(api_key="")
 
 currdir = os.path.dirname(os.path.abspath(__file__))
 logging.info("Current Directory: %s", currdir)
