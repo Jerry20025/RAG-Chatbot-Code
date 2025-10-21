@@ -1,0 +1,82 @@
+Document 1:
+## Key Features of QLoRA
+- **Further Memory Reduction**: QLoRA extends LoRA by quantizing the main model weights to 4 bits (using methods like NF4), while keeping the LoRA adapters in higher precision (e.g., 16-bit).
+- **Ultra-Low Resource Requirements**: QLoRA can fine-tune very large models (billions of parameters) on consumer-grade GPUs or even CPUs by reducing VRAM needs to as little as 0.5GB per 1GB model.
+- **Performance**: QLoRA has been shown to maintain comparable accuracy to standard LoRA and full fine-tuning, even on very large models. In many cases, performance loss is negligible or non-existent.
+- **Adapter Placement**: For QLoRA, it is often recommended to apply LoRA adapters to all linear transformer blocks, not just the query/key/value layers, especially for larger models.
+- **Mitigating Quantization Loss**: QLoRA uses LoRA as an accessory to correct for any errors introduced by quantization, ensuring high accuracy is maintained.
+
+Document 2:
+parameter efficiency during training. For inference, the model
+can be converted to its original weight parameterization, en-
+suring unchanged inference speed. This procedure is depicted
+in Figure 4 (c).
+Earlier research studies [75] have shown that common
+pre-trained models exhibit an exceptionally low intrinsic di-
+mensionality. In other words, it is possible to find a low-
+dimensional reparameterization that is effective for fine-tuning
+as the entire parameter space. Intrinsic SAID [75] is the pi-
+oneering work in investigating the intrinsic dimension feature
+during the fine-tuning of LLMs. However, the most widely
+recognized reparameterization technique is LoRA (Low-Rank
+Adaptation) [76], [109], as shown in Figure 8 (a). For a given
+pre-trained weight matrix W0 PRdˆk, LoRA introduces two
+trainable weight matrices, Wup P Rdˆr and Wdown P Rrˆk
+where the rank r ! minpd, kq, operating in parallel to W0.
+Let hin represent the input. Under normal conditions, the
+
+Document 3:
+Structural Masking S-Diff pruning [63], S-BitFit [64], FAR [71], Bitfit [72], Xattn Tuning [73], SPT [74]
+Reparameterized
+Fine-tuning
+Low-rank
+Decomposition Intrinsic SAID [75], LoRA [76], Compacter [77], KronA [78], KAdaptation [79], HiWi [65], VeRA [80], DoRA [81]
+LoRA Derivatives
+Dynamic Rank DyLoRA [82], AdaLoRA [83], SoRA [84], CapaBoost [85], AutoLoRA [86]
+LoRA Improvement Laplace-LoRA [87], LoRA Dropout [88], PeriodicLoRA [89], LoRA+ [90], MoSLoRA [91]
+Multiple LoRA LoRAHub [92], MOELoRA [93], MoLORA [60], MoA [94], MoLE [95], MixLoRA [96]
+Hybrid
+Fine-tuning UniPELT [97], S4 [98], MAM Adapter [32], NOAH [99], AUTOPEFT [100], LLM-Adapters [101], S3PET [102]
+Fig. 3: Taxonomy of Parameter-Efficient Fine-Tuning Methods for Large Models.
+Output
+Combine
+Frozen Learnable
+Input
+Output
+Input
+(c) Reparameterization PEFT(a) Additive PEFT (b) Selective PEFT
+Merge
+Output
+Input Input (train)
+Fig. 4: Different types of PEFT algorithms.
+
+Document 4:
+PT P “QQT “I, an additional regularizer term is included
+in the loss:
+RpP, Qq“
+››PT P ´I
+››2
+F `
+››QQT ´I
+››2
+F . (13)
+This adaptive approach enables the model to dynamically ad-
+just the rank within each LoRA module, effectively managing
+its parameter counts based on the significance of the weight
+matrices. However, according to SoRA [84], the importance
+scores used in AdaLoRA are heuristically constructed, which
+lacks rigorous theoretical motivation. Additionally, both mov-
+ing average operation and calculation of Eq. 13 introduce
+extra computation costs during training. To address this, SoRA
+eliminates the orthogonality premise of P and Q. Instead, a
+gating unit g PRr between Wup and Wdown is directly applied
+and optimized:
+hout “Wuppg dpWdownhinqq, (14)
+where dis Hadamard product. The gate g is updated using a
+variation of proximal gradient iteration for l1 loss [110], [111],
+which has a clear mathematical meaning and does not need
+
+Document 5:
+- **Modularity**: LoRA adapters can be swapped in and out for different tasks, enabling flexible multi-task deployment without retraining the entire model.
+- **No Inference Latency**: Once fine-tuned, LoRA adapters can be merged into the main model weights, so there is no additional inference cost.
+

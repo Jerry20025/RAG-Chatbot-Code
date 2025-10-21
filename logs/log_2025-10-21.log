@@ -1,0 +1,15 @@
+2025-10-21 10:10:52,378 - INFO - Loading vector DB from local storage
+2025-10-21 10:12:08,454 - INFO - Use pytorch device_name: cpu
+2025-10-21 10:12:08,454 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-21 10:12:16,693 - INFO - Vector DB loaded successfully
+2025-10-21 10:12:16,694 - INFO - Querying the vector DB
+2025-10-21 10:12:16,853 - INFO - Retrieved 5 documents from vector DB
+2025-10-21 10:21:24,154 - INFO - Loading vector DB from local storage
+2025-10-21 10:21:41,159 - INFO - Use pytorch device_name: cpu
+2025-10-21 10:21:41,159 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-21 10:22:30,911 - INFO - Loading vector DB from local storage
+2025-10-21 10:22:44,338 - INFO - Use pytorch device_name: cpu
+2025-10-21 10:22:44,338 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-21 10:22:54,381 - INFO - Vector DB loaded successfully
+2025-10-21 10:22:54,381 - INFO - Querying the vector DB
+2025-10-21 10:22:54,630 - INFO - Retrieved 5 documents from vector DB

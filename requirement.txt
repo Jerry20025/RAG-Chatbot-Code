@@ -1,0 +1,15 @@
+langchain
+langchain-community
+langchain-core
+langchain-huggingface 
+langchain-google-genai
+faiss-cpu  
+pypdf  
+unstructured  
+beautifulsoup4
+requests 
+sentence-transformers
+torch
+python-dotenv 
+firecrawl-py
+pandas
